@@ -5,15 +5,19 @@ import Container from "../components/Container/index.js"
 
 class Books extends Component {
   
-  state = {
-    books: [],
-    bookInput: ""
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+        books: [],
+        bookInput: ""
+    }
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
 
   searchGoogle = query => {
     API.searchBooks(query)
-      .then(res => this.setState({ books:res.data}))
+      .then(res => this.setState({books:res.data}))
       .catch(err => console.log(err));
   };
 

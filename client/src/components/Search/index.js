@@ -9,9 +9,7 @@ function Search(props) {
                 <br></br>
                 <input 
                     id="bookInput"
-                    type="text"
-                    name="bookInput" 
-                    form="bookSearch"
+                    name="title" 
                     value={props.title} 
                     onChange={(event) => props.handleInputChange(event)}
                     placeholder="Title (required)"/>
