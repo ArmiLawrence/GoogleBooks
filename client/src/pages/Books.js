@@ -15,6 +15,10 @@ class Books extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  componentDidMount() {
+    this.searchGoogle();
+  }
+
   searchGoogle = query => {
     API.searchBooks(query)
       .then(res => this.setState({books:res.data}))

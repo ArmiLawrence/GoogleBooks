@@ -11,7 +11,7 @@ class Saved extends Component {
     }
 }
   
-  componentWillMount() {
+componentDidMount() {
     API.getBooks()
       .then(res => this.setState({ savedBooks: res.data }))
       .catch(err => console.log(err));
