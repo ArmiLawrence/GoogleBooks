@@ -1,0 +1,7 @@
+.box{
+    background: #6CADDC;
+    width: 100%;
+    height: (100vw * .43333);
+    background-size: cover;
+    position: relative;
+}
