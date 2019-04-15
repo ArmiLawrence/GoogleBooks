@@ -14,6 +14,7 @@ function Search(props) {
                     onChange={(event) => props.handleInputChange(event)}
                     placeholder="Title (required)"/>
                 <br></br>
+                <br></br>
                 <button type="submit" onClick={(event) => props.handleFormSubmit(event)}>Search</button>
             </form>
         </div>

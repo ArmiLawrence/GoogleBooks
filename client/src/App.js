@@ -4,6 +4,7 @@ import Books from "./pages/Books";
 import Saved from "./pages/Saved";
 import Nav from "./components/Nav";
 import Header from "./components/Header"
+import "./App.css";
 
 class App extends Component {
   render(){
