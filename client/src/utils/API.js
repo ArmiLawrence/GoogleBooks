@@ -7,7 +7,7 @@ export default {
   },
   // Gets the book from Google
   searchBooks: function(title) {
-    return axios.get("/books" + title);
+    return axios.post("/books" + title);
   },
   // Deletes the book with the given id
   deleteBook: function(id) {
