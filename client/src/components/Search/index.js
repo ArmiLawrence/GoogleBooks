@@ -5,7 +5,7 @@ function Search(props) {
         <div id="searchContainer">
             <h3>Book Search</h3>
             <form id="bookSearch">
-                <label>Book:</label>
+                <label>Book Title:</label>
                 <br></br>
                 <input 
                     id="bookInput"

@@ -17,11 +17,10 @@ module.exports = function(app) {
 
     app.post("/books", (req, res) => {
         // set bookTitle to the req.body.title with spaces replaced with plus signs(+)
-        //let bookTitle = req.body.title.replace(/\s/g, "+");
+        let bookTitle = req.body.title.replace(/\s/g, "+");
         const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
         const APIKEY = "&key=AIzaSyDFpd-2EoMstvbarr8ywlER8dEv2nzfQhY";
 
-        let bookTitle = req;
 
         console.log("------------look at me----------------------", bookTitle);
 

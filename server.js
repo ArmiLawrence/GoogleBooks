@@ -15,7 +15,7 @@ app.use(express.json());
 // parse application/json
 app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

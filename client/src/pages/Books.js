@@ -5,19 +5,19 @@ import Container from "../components/Container/index.js"
 
 class Books extends Component {
   
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
         books: [],
         bookInput: ""
-    }
+    };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
+  };  
+  
   componentDidMount() {
     this.searchGoogle();
-  }
+  };
 
   searchGoogle = query => {
     API.searchBooks(query)
@@ -27,6 +27,7 @@ class Books extends Component {
 
 
   handleInputChange = event => {
+    event.preventDefault();
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
@@ -55,6 +56,6 @@ class Books extends Component {
         </div>
     );
   }
-}
+};
 
 export default Books;
