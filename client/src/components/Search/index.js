@@ -9,13 +9,15 @@ function Search(props) {
                 <br></br>
                 <input 
                     id="bookInput"
-                    name="title" 
-                    value={props.title} 
-                    onChange={(event) => props.handleInputChange(event)}
+                    name="bookInput"
+                    type="text"
+                    form="bookSearch" 
+                    value={props.bookInput} 
+                    onChange={props.handleInputChange}
                     placeholder="Title (required)"/>
                 <br></br>
                 <br></br>
-                <button type="submit" onClick={(event) => props.handleFormSubmit(event)}>Search</button>
+                <button type="submit" onClick={props.handleFormSubmit}>Search</button>
             </form>
         </div>
     );

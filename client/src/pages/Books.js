@@ -27,7 +27,8 @@ class Books extends Component {
 
 
   handleInputChange = event => {
-    const { name, value } = event.target;
+    const name = event.target.name;
+    const value = event.target.value;
     this.setState({
       [name]: value
     });
@@ -42,9 +43,14 @@ class Books extends Component {
   render() {
     return (
         <div>
-          <Search handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
+          <Search 
+              bookInput={this.state.bookInput}
+              handleInputChange={this.handleInputChange} 
+              handleFormSubmit={this.handleFormSubmit}  />
             {(this.state.books.length > 0)?
-              <Container books={this.state.books} path={this.props.match.path}/> : null
+              <Container 
+                books={this.state.books} 
+                path={this.props.match.path}/> : null
             }
         </div>
     );
