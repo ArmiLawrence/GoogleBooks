@@ -57,13 +57,15 @@ class Result extends React.Component {
                         <h4>{this.props.title}</h4>
                         <p>By: {(this.props.authors)? this.props.authors.join(", "): "N/A"}</p>
                     </div>
+                </div>
+                <div className="row">    
                     <div className="btnDiv">
                         {
                             // if link to book exists include View button
                             (this.props.link)? <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button type="button" name="view">View</button></a> : null
                         }
-                    </div>
-                    <br></br>
+                    </div>     
+
                     <div className="btnDiv">
                         {
                             // if this.props.path is "/" display save button else display Delete button
