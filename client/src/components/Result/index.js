@@ -17,7 +17,7 @@ class Result extends React.Component {
         this.setState({saved: true});
         const books = {
             title: this.props.title,
-            authors: this.props.authors,
+            author: this.props.author,
             link: this.props.link,
             img: this.props.img,
             description: this.props.description
@@ -62,6 +62,9 @@ class Result extends React.Component {
                             // if link to book exists include View button
                             (this.props.link)? <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button type="button" name="view">View</button></a> : null
                         }
+                    </div>
+                    <br></br>
+                    <div className="btnDiv">
                         {
                             // if this.props.path is "/" display save button else display Delete button
                             (this.props.path === "/")? <button type="button" name="save" onClick={this.handleSaveClick} disabled={this.state.saved}>{(this.state.saved)? "Saved" : "Save"}</button> : 
