@@ -51,7 +51,9 @@ class Result extends React.Component {
 
     render() {
         return(
-            <div className="Result" id={(this.props.id)? this.props.id: null} style={{display: this.state.deleted? "none" : "block"}}>
+            <div className="Result" 
+                    id={(this.props.id)? this.props.id: null} 
+                    style={{display: this.state.deleted? "none" : "block"}}>
                 <div className="row">
                     <div className="aboutBook">
                         <h4>{this.props.title}</h4>
@@ -69,8 +71,14 @@ class Result extends React.Component {
                     <div className="btnDiv">
                         {
                             // if this.props.path is "/" display save button else display Delete button
-                            (this.props.path === "/")? <button type="button" name="save" onClick={this.handleSaveClick} disabled={this.state.saved}>{(this.state.saved)? "Saved" : "Save"}</button> : 
-                                <button type="button" name="Delete" onClick={this.handleDeleteClick} disabled={this.state.deleted}>Delete</button>
+                            (this.props.path === "/")? <button type="button" 
+                                                                name="save" 
+                                                                onClick={this.handleSaveClick} 
+                                                                disabled={this.state.saved}>{(this.state.saved)? "Saved" : "Save"}</button> : 
+                                <button type="button" 
+                                        name="Delete" 
+                                        onClick={this.handleDeleteClick} 
+                                        disabled={this.state.deleted}>Delete</button>
                         }
                     </div>
                 </div>
