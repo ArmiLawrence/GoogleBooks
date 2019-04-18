@@ -50,7 +50,7 @@ module.exports = function(app) {
     });
 
     app.delete("/api/books/:id", (req, res) => {
-        db.Book.deleteOne(req.params.id).then(
+        db.Book.deleteOne({_id: req.params.id}).then(
             (response) => {
                 res.json({successful: response});
             }

@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Search from "../components/Search/index.js"
-import Container from "../components/Container/index.js"
+import { Col, Row, Container } from "../components/Grid/index.js";
+import Jumbotron from "../components/Jumbotron/index.js";
+import Result from "../components/Result/index.js"
+import Card from "../components/Card/index.js"
 
 class Books extends Component {
   
-  constructor(props){
-    super(props);
-    this.state = {
-        books: [],
-        bookInput: ""
+  state = {
+        bookInput: "",
+        books: []
     };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  };  
+  
   
   componentDidMount() {
     this.searchGoogle();
@@ -41,19 +40,77 @@ class Books extends Component {
     this.searchGoogle(this.state.bookInput);
   };
 
+  handleSaveClick = bookData => {
+    API.saveBook(bookData).then(
+        (response) => {
+            console.log(response);
+        }
+    ).catch(
+        (err) => {
+            console.log(err);
+        }
+    );
+  }
+
   render() {
     return (
-        <div>
-          <Search 
-              bookInput={this.state.bookInput}
-              handleInputChange={this.handleInputChange} 
-              handleFormSubmit={this.handleFormSubmit}  />
-            {(this.state.books.length > 0)?
-              <Container 
-                books={this.state.books} 
-                path={this.props.match.path}/> : null
-            }
-        </div>
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+            <h1>What Books Should I Read?</h1>
+            </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Card heading="Google Books Search">
+              <Search
+                bookInput={this.state.bookInput}
+                handleInputChange={this.handleInputChange} 
+                handleFormSubmit={this.handleFormSubmit}
+              />
+            </Card>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col size="md-12">
+            {this.state.books.length ? (
+              <Card heading="Results">
+                {this.state.books.map(book => (
+                  <Result
+                    key={book.id}
+                    src={book.volumeInfo.imageLinks 
+                      ? book.volumeInfo.imageLinks.thumbnail
+                      : null}
+                    title={book.volumeInfo.title}
+                    authors={book.volumeInfo.authors
+                      ? book.volumeInfo.authors.join(", ")
+                      : "N/A"}
+                    date={book.volumeInfo.publishedDate}
+                    description={book.volumeInfo.description}
+                    link={book.volumeInfo.infoLink}
+                    handleSaveClick ={() => this.handleSaveClick ({ 
+                      title: book.volumeInfo.title,
+                      src: book.volumeInfo.imageLinks 
+                        ? book.volumeInfo.imageLinks.thumbnail 
+                        : null,
+                      authors: book.volumeInfo.authors,
+                      date: book.volumeInfo.publishedDate,
+                      description: book.volumeInfo.description,
+                      link: book.volumeInfo.infoLink})}
+                  />
+                ))}
+              </Card>
+            ) : (
+              <Card heading="Search Results"></Card>
+            )}
+          </Col>
+        </Row>
+
+      </Container>
+
     );
   }
 };

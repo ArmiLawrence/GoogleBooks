@@ -4,23 +4,17 @@ nav {
   text-align: center;
 }
 
+html, body{
+  background-color: turquoise ;
+}
 
 #searchContainer, #container {
   color: #61dafb;
-  background-color: darkblue;
+  background-color: rgb(31, 121, 190);
   padding: 2vw;
   margin: 2vw;
   font-size: 2rem;
   text-align: center;
-}
-
-
-.Result {
-  background-color: rgb(31, 121, 190);
-  color: black;
-  padding: 1.75vw;
-  font-size: 1rem;
-  border-style: double;
 }
 
 button {
@@ -32,7 +26,3 @@ button {
   font-size: 1vw;
 }
 
-.btnDiv {
-  box-sizing: border-box;
-  float: right;
-}
