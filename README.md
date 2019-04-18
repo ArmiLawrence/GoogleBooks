@@ -15,4 +15,6 @@ This app is a book search engine that allows a user to enter a Title in the Book
     * MVC - Model View Controller
 
 
-This App is not fully functional. I am getting a 404 (Not Found) error when I attempt to Delete the saved records.
+* This App is not fully functional. Currently, there are 2 issues:
+    * I am getting a 404 (Not Found) error when I attempt to Delete the saved records 
+    * not all of the fields in the model within the Books collection got created. I am currently troubleshooting this.
