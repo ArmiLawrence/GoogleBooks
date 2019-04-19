@@ -17,4 +17,7 @@ This app is a book search engine that allows a user to enter a Title in the Book
 
 * This App is not fully functional. Currently, I have an issue:
     * Not all of the fields in the model within the Books collection got created. I am currently troubleshooting this.
-* I could improve on the UI.
+* Rest of app is functional - points of improvement
+    * UI design
+    * Reloading of the page when the Save Book or Delete are cilcked
+    * Clearing of the form after a title is submitted
